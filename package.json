@@ -1,11 +1,14 @@
 {
-  "name": "lnGuid",
+  "name": "lnguid",
   "version": "0.0.1",
-  "description": "Generated Guid by c++",
+  "description": "Generate Guid by c++",
   "main": "index.js",
   "scripts": {
-    "test": "test.js",
-    "install": "node-gyp rebuild"
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LevyLession/nodejs-lnGuid"
   },
   "keywords": [
     "guid",
@@ -14,5 +17,8 @@
   ],
   "author": "Lession Levy",
   "license": "ISC",
-  "gypfile": true
+  "bugs": {
+    "url": "https://github.com/LevyLession/nodejs-lnGuid/issues"
+  },
+  "homepage": "https://github.com/LevyLession/nodejs-lnGuid"
 }

@@ -11,12 +11,14 @@ How to use it
 ##Installation
 You can install with `npm`:
 ``` bash
-$ npm install lnGuid
+$ npm install lnguid
 ```
+i'm publish in npm unsuccessfully, please download and unzip this package and change folder name with `lnguid`.
+Finally, put this folder into your project's node_modules
 
 ##Get a Guid object from nodejs
 ``` javascript
-var lnGuid = require('lnGuid');
+var lnGuid = require('lnguid');
 var myGuid = lnGuid.newGuid(); // -> Create new Guid
 console.log(myGuid.toString()); // -> The console print like this "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
@@ -40,5 +42,5 @@ console.log(myGuid.toString()); // -> The console print like this "xxxxxxxx-xxxx
     var myGuid = lnGuid.parse('A4F1A501-D421-4621-BB51-DE7E8857BA09'); // -> Transform a Guid object from guid string, like `new Guid('guid string')`
     var isGuid = lnGuid.isGuid('A4F1A501-D421-4621-BB51-DE7E8857BA09'); // -> Check a `string` or a `lnGuid` object is Guid or another?
     var isEqueal = lnGuid.equals(emptyGuid, myGuid); //Check `emptyGuid` and `myGuid` is equal;
-        remark: lnGuid.equals method`s two parameters must be lnGuid`s object, another return false
+        //remark: lnGuid.equals method`s two parameters must be lnGuid`s object, another return false
 ```
