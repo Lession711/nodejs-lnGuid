@@ -1,0 +1,18 @@
+{
+  "name": "lnGuid",
+  "version": "0.0.1",
+  "description": "Generated Guid by c++",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js",
+    "install": "node-gyp rebuild"
+  },
+  "keywords": [
+    "guid",
+    "lnguid",
+    "uuid"
+  ],
+  "author": "Lession Levy",
+  "license": "ISC",
+  "gypfile": true
+}
