@@ -9,7 +9,13 @@ module.exports = (function () {
     var guidReg = /^\{?[a-f0-9]{8}(-?[a-f0-9]{4}){3}-?[a-f0-9]{12}\}?$/gi
     var Guid = function (guid) {
         var value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
+        var getNumberString2X = function (num) {
+            var a = num.toString(16);
+            if(a.length == 1) {
+                return "0" + a;
+            }
+            return a;
+        }
         this.equals = function (guid1) {
             if(guid1 instanceof Guid) {
                 var v = guid1.toArray();
@@ -34,15 +40,26 @@ module.exports = (function () {
 
         this.toString = function () {
             var result = "";
-            for (var i = 0; i < value.length; i++) {
-                var a = value[i].toString(16);
-                if(a.length == 1)
-                    a = "0" + a;
-                //00 00 00 00-00 00-00 00-00 00 00 00 00 00
-                if(i == 4 || i ==6 || i == 8 || i == 10)
-                    result += "-";
-                result += a;
-            };
+            result += getNumberString2X(value[3]);
+            result += getNumberString2X(value[2]);
+            result += getNumberString2X(value[1]);
+            result += getNumberString2X(value[0]);
+            result += "-";
+            result += getNumberString2X(value[5]);
+            result += getNumberString2X(value[4]);
+            result += "-";
+            result += getNumberString2X(value[7]);
+            result += getNumberString2X(value[6]);
+            result += "-";
+            result += getNumberString2X(value[8]);
+            result += getNumberString2X(value[9]);
+            result += "-";
+            result += getNumberString2X(value[10]);
+            result += getNumberString2X(value[11]);
+            result += getNumberString2X(value[12]);
+            result += getNumberString2X(value[13]);
+            result += getNumberString2X(value[14]);
+            result += getNumberString2X(value[15]);
             return result.toUpperCase();
         };
 
@@ -54,11 +71,29 @@ module.exports = (function () {
                 if(!guidReg.test(guid)) {
                     throw "This is not a Guid string";
                 }
-                var strGuid = guid.replace(/[-\{\}]/g, "");
-                for (var i = 0; i < 16; ++i) {
-                    var a = strGuid.substring(0,2);
-                    value[i] = parseInt(a, 16);
-                    strGuid = strGuid.substring(2);
+                var arr = guid.replace(/[-\{\}]/g, "").split('');
+                var itm = arr.splice(0, 2).join(''); //0
+                value[3] = parseInt(itm, 16);
+                itm = arr.splice(0, 2).join(''); //1
+                value[2] = parseInt(itm, 16);
+                itm = arr.splice(0, 2).join(''); //2
+                value[1] = parseInt(itm, 16);
+                itm = arr.splice(0, 2).join(''); //3
+                value[0] = parseInt(itm, 16);
+
+                itm = arr.splice(0, 2).join(''); //4
+                value[5] = parseInt(itm, 16);
+                itm = arr.splice(0, 2).join(''); //5
+                value[4] = parseInt(itm, 16);
+
+                itm = arr.splice(0, 2).join(''); //6
+                value[7] = parseInt(itm, 16);
+                itm = arr.splice(0, 2).join(''); //7
+                value[6] = parseInt(itm, 16);
+
+                for (var i = 8; i < 16; ++i) {
+                    itm = arr.splice(0, 2).join(''); //8~15
+                    value[i] = parseInt(itm, 16);
                 }
                 return;
             }

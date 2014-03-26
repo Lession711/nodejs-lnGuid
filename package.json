@@ -1,6 +1,6 @@
 {
   "name": "lnguid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate Guid by c++",
   "main": "index.js",
   "scripts": {

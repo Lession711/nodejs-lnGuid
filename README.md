@@ -44,3 +44,8 @@ console.log(myGuid.toString()); // -> The console print like this "xxxxxxxx-xxxx
     var isEqueal = lnGuid.equals(emptyGuid, myGuid); //Check `emptyGuid` and `myGuid` is equal;
         //remark: lnGuid.equals method`s two parameters must be lnGuid`s object, another return false
 ```
+
+
+## Uploaded Changes
+### v0.0.3
+    1.Repair binary storage order, to make it look closer .Net's Guid
